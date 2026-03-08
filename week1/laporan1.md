@@ -22,6 +22,7 @@ Bisa di download melalui aplikasi browser apapun
 1. Klik link yang sudah disiapkan
 2. Pencet bagian download
 3. Lalu pilih opsi windows seperti gambar dibawah ini
+
 gambar : 
 ![py for windows](../assets/image/py%20windows.png)
 4. Setelah muncul gambar seperti dibawah ini, klik tulisan Download Windows Installer (64 bit)
