@@ -33,7 +33,6 @@ gambar :
 
 5. Tunggu sampai terinstal
 6. Setelah selesai unduh, klik file nya lalu next terus sampai finish
-7. Untuk cek apakah python udah terinstall, buka cmd lalu ketikkan *python --version* contoh seperti gambar dibawah ini
+7. Untuk cek apakah python udah terinstall, buka cmd lalu ketikkan **python --version** contoh seperti gambar dibawah ini :
 
-gambar :
 ![cmd py](../assets/image/cmd%20py.png)
