@@ -25,12 +25,15 @@ Bisa di download melalui aplikasi browser apapun
 
 gambar : 
 ![py for windows](../assets/image/py%20windows.png)
+
 4. Setelah muncul gambar seperti dibawah ini, klik tulisan Download Windows Installer (64 bit)
 
 gambar :
 ![py windows 64bit](../assets/image/py%2064bit.png)
+
 5. Tunggu sampai terinstal
 6. Setelah selesai unduh, klik file nya lalu next terus sampai finish
 7. Untuk cek apakah python udah terinstall, buka cmd lalu ketikkan *python --version* contoh seperti gambar dibawah ini
+
 gambar :
 ![cmd py](../assets/image/cmd%20py.png)
