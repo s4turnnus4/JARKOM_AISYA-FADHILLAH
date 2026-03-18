@@ -73,3 +73,22 @@ Baris 84 (GET /8E_cover_small.jpg), browser otomatis mengikuti petunjuk server d
 
 ## HTTP Authentication
 
+1. Buka browser dan hapus terlebih dahulu cache dan history browser
+2. Buka wireshark dan start dengan menekan tombol hiu
+3. Buka browser lagi dan masukkan link berikut http://gaia.cs.umass.edu/wireshark-labs/protected_pages/HTTP-wireshark-file5.html Ketik username dan password yang diminta ke dalam kotak pop up (username dan password terdapat pada paragraf diatas). Usernamenya adalah "wireshark-students" (tanpa tanda kutip), dan passwordnya adalah "network" (sekali lagi, tanpa tanda kutip).
+
+gambar:
+![http](../assets/image/pw%20username.png)
+
+4. Stop pengambilan paket Wireshark dengan menekan tombol kotak, dan masukkan “http” untuk filter, sehingga hanya pesan HTTP yang diambil yang akan ditampilkan.
+
+gambar web berhasil login:
+![http](../assets/image/hasilprotect.png)
+
+gambar unauthorize:
+![http](../assets/image/unauthorize.png)
+Server memberikan respons 401 Unauthorized. Ini terjadi karena browser mencoba mengakses halaman HTTP-wireshark-file5.html yang berada di folder "protected_pages" tanpa mengirimkan username atau password. Dan Server menjawab, kalian tidak punya izin untuk melihat halaman ini sebelum login.
+
+gambar hasil keseluruhan:
+![http](../assets/image/http6.png)
+Pada blok hitam server menjawab dengan 200 OK, yang artinya login berhasil. Jika Anda melihat bagian bawah gambar pada teks HTML-nya, muncul tulisan "This page is password protected! If you're seeing this, you've downloaded the page correctly" pada line html. Ini adalah pesan rahasia yang hanya muncul setelah login sukses.
