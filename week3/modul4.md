@@ -10,6 +10,9 @@ Adapun sintaks umum perintah nslookup, yaitu:
 
 Secara umum, nslookup dapat dijalankan dengan nol, satu, dua, atau lebih opsi.
 
+Langkah-Langkah:
+1. Buka CMD untuk mengetikkan query perintah
+2. Masukkan secara bertahap perintah dibawah ini:
 ### Perintah 1 : nslookup untuk domain www.mit.edu
 Menggunakan perintah: 
 ```nslookup www.mit.edu```
@@ -63,3 +66,15 @@ Hasil dari perintah `nslookup mta5.am0.yahoodns.net` menunjukkan proses resolusi
 ---
 
 ## 4.3 IPCONFIG
+Perintah ipconfig merupakan alat bantu di Windows yang sangat berguna untuk melihat rincian koneksi internet pada komputer secara cepat. Dengan menjalankan perintah ini, kita bisa mengetahui informasi penting seperti alamat IP (IPv4), subnet mask, hingga pintu keluar jaringan (default gateway) yang sedang digunakan. Selain itu, ipconfig juga sering dipakai untuk mendeteksi masalah koneksi, karena lewat perintah ini kita bisa memastikan apakah komputer sudah terhubung dengan benar ke jaringan atau belum melalui adaptor yang tersedia.
+
+Langkah-Langkah:
+1. Buka CMD untuk mengetikkan semua query nya
+2. Ada 3 perintah untuk query ipconfig ini, yaitu:
+### Perintah 1 : Untuk memperoleh semua informasi tentang host kita
+
+```ipconfig /all```
+
+![config all](../week3/assets/week3/ipconfig1pt1.png)
+![config all2](../week3/assets/week3/ipconfig1pt2.png)
+
