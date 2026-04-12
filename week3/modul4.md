@@ -257,5 +257,3 @@ Menggunakan filter ```ip.dst == 18.0.72.3 && dns && dns.qry.name contains "aiit"
 ![nu2](../week3/assets/week3/nu1.png)
 3. 
 ![nu3](../week3/assets/week3/nslookup%20aiit.png)
-4. 
-
