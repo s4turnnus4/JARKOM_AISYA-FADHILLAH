@@ -3,6 +3,8 @@
 Mahasiswa dapat menginvestigasi cara kerja DNS menggunakan Wireshark
 ---
 ## 4.2 NSLOOKUP
+Menggunakan WIFI TUS
+
 Perintah `nslookup` merupakan alat bantu yang berfungsi untuk menerjemahkan nama domain yang mudah diingat manusia menjadi alamat IP yang dapat dipahami oleh mesin dalam jaringan komputer. Saat perintah ini dijalankan, perangkat akan mengirimkan permintaan informasi ke server DNS untuk mencari tahu lokasi server dari suatu situs web, baik itu melalui server perantara maupun server sah (asli). Hasil yang ditampilkan pada terminal memungkinkan kita untuk memverifikasi konfigurasi jaringan serta memastikan bahwa koneksi menuju alamat tujuan sudah terarah dengan benar berdasarkan database DNS yang tersedia.
 Adapun sintaks umum perintah nslookup, yaitu:
 
@@ -40,6 +42,8 @@ Perintah ini bertujuan untuk melakukan kueri DNS secara langsung ke server bitsy
 ---
 
 ## Jawaban dari 3 Pertanyaan
+Menggunakan WIFI HP
+
 ### 1. Pencarian alamat IP untuk domain National University of Singapore (Server Web Asia)
 
 ![web asia nus](../week3/assets/week3/server%20asia.png)
@@ -66,6 +70,8 @@ Hasil dari perintah `nslookup mta5.am0.yahoodns.net` menunjukkan proses resolusi
 ---
 
 ## 4.3 IPCONFIG
+Menggunakann WIFI KOS
+
 Perintah ipconfig merupakan alat bantu di Windows yang sangat berguna untuk melihat rincian koneksi internet pada komputer secara cepat. Dengan menjalankan perintah ini, kita bisa mengetahui informasi penting seperti alamat IP (IPv4), subnet mask, hingga pintu keluar jaringan (default gateway) yang sedang digunakan. Selain itu, ipconfig juga sering dipakai untuk mendeteksi masalah koneksi, karena lewat perintah ini kita bisa memastikan apakah komputer sudah terhubung dengan benar ke jaringan atau belum melalui adaptor yang tersedia.
 
 Langkah-Langkah:
@@ -102,6 +108,8 @@ Perintah `ipconfig /flushdns` berfungsi untuk menghapus seluruh riwayat data DNS
 ---
 
 ## 4.4 TRACING DNS DENGAN WIRESHARK
+Menggunakan WIFI KOS
+
 Langkah-Langkah:
 1. Pertama-tama, mari kita tangkap paket DNS yang dihasilkan oleh aktivitas penjelajahan web
 biasa. Sebelum itu gunakan `ipconfig /flushdns` untuk mengosongkan catatan DNS di host.
@@ -187,4 +195,36 @@ Host tidak perlu mengirimkan pesan permintaan DNS baru setiap kali ingin mengaks
 ![jawaban7](../week3/assets/week3/nomor7.2.png)
 
 ![jawaban7](../week3/assets/week3/nomor7.3.png)
+
+---
+
+## Analisis Paket DNS nslookup pada www.mit.edu
+Menggunakan WIFI HP
+
+Langkah-Langkah:
+1. Mulai pengambilan paket pada wireshark
+2. Lakukan perintah `nslookup www.mit.edu` pada CMD
+
+![nslookup mit edu](../week3/assets/week3/nslookup%20mit%20edu.png)
+
+Ini hasilnya:
+
+![hasil nslookup](../week3/assets/week3/hasil%20nslookup.png)
+
+3. Hentikan pengambilan paket di wireshark
+
+Dapat kita lihat pada gambar di atas bahwa nslookup sebenarnya mengirim tiga pesan permintaan
+DNS dan menerima tiga pesan balasan. Selanjutnya jawablah pertanyaan-pertanyaan di bawah.
+Dalam menjawab pertanyaan, abaikan dua pasangan permintaan-balasan pertama karena mereka
+merupakan paket yang khusus dihasilkan oleh nslookup. Anda cukup fokus pada pesan permintaan
+dan balasan terakhir.
+
+## Jawaban Pertanyaan
+1. 
+2. 
+3. 
+4. 
+5. 
+
+
 
