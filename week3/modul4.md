@@ -220,16 +220,37 @@ merupakan paket yang khusus dihasilkan oleh nslookup. Anda cukup fokus pada pesa
 dan balasan terakhir.
 
 ### Jawaban Pertanyaan
-1. 
+1. Port Tujuan dan Port Sumber
+
 ![nm1](../week3/assets/week3/new1.png)
-2. 
+
+- Port Tujuan (Permintaan): Port 53 (port standar untuk layanan DNS).
+- Port Sumber (Balasan): Port 53.
+Sesuai prinsip protokol, port tujuan pada permintaan akan menjadi port sumber pada balasan.
+
+2. Alamat IP Tujuan
+
 ![nm2](../week3/assets/week3/new2.png)
-3. 
+
+- IP Tujuan: 10.92.111.136.
+- Status Server: Ya, alamat tersebut adalah alamat server DNS lokal (ditunjukkan pada jendela Command Prompt di gambar kedua sebagai alamat Server).
+
+3. Analisis Pesan Permintaan (DNS Query)
+
 ![nm3](../week3/assets/week3/new3.png)
-4. 
+
+- Jenis (Type): Type A (Host Address) untuk menanyakan alamat IPv4 dari www.mit.edu.
+- Jawaban (Answers): Tidak ada. Pesan permintaan hanya berisi bagian "Queries" dan memiliki Answer RRs: 0.
+
+4. Analisis Pesan Balasan (DNS Response)
+
 ![nm4](../week3/assets/week3/new4.png)
-5. 
-![nm5](../week3/assets/week3/new4.png)
+
+Jumlah Jawaban: Terdapat 3 jawaban (Answer RRs: 3).
+Isi Jawaban:
+- CNAME: www.mit.edu diarahkan ke alias www.mit.edu.edgekey.net.
+- CNAME: www.mit.edu.edgekey.net diarahkan ke alias e9566.dscb.akamaiedge.net.
+- A (Address): Alamat IP final dari host tersebut adalah 23.217.163.122.
 
 ## Analisis Paket DNS nslookup –type=NS mit.edu
 ![nslookup -type mit edu](../week3/assets/week3/nslookup-type.png)
@@ -237,12 +258,27 @@ Ini hasilnya:
 Menggunakan filter ```ip.addr == 10.92.111.136 && dns.qry.name contains "mit"```
 ![hasil -type](../week3/assets/week3/hasil%20-typr.png)
 ### Jawaban Pertanyaan
-1. 
+
+1. Alamat IP Tujuan
+
 ![no1](../week3/assets/week3/nw1.png)
-2. 
+
+- IP Tujuan: 10.92.111.136.
+- Status Server: Ya, ini merupakan alamat server DNS lokal saya (sama dengan yang tertera pada hasil nslookup sebelumnya).
+
+2. Analisis Pesan Permintaan (DNS Query)
+
 ![no2](../week3/assets/week3/nw1.png)
-3. 
+
+- Jenis (Type): NS (Name Server).
+- Jawaban (Answers): Tidak ada. Pesan permintaan hanya berisi pertanyaan (Questions: 1) tanpa bagian jawaban (Answer RRs: 0).
+
+3. Analisis Pesan Balasan (DNS Response)
+
 ![no3](../week3/assets/week3/nw3.png)
+
+- Nama Server MIT: Terdapat 8 Name Server (NS) yang diberikan, di antaranya: ns1-37.akam.net, eur5.akam.net, use2.akam.net, ns1-173.akam.net, use5.akam.net, asia1.akam.net, asia2.akam.net, dan usw2.akam.net.
+- Alamat IP Server: Ya, pesan balasan memberikan alamat IP untuk server-server tersebut yang tercantum pada bagian Additional Records (terlihat ada record tipe A untuk IPv4 dan tipe AAAA untuk IPv6).
 
 ## Analisis Paket DNS nslookup www.aiit.or.kr bitsy.mit.edu
 ![nslookup aiit](../week3/assets/week3/nslookup%20aiit.png)
@@ -251,9 +287,22 @@ Menggunakan filter ```ip.dst == 18.0.72.3 && dns && dns.qry.name contains "aiit"
 ![hasil aiit](../week3/assets/week3/hasil%20aiit.png)
 
 ### Jawaban Pertanyaan
-1. 
+1. Alamat IP Tujuan
+
 ![nu1](../week3/assets/week3/nu1.png)
-2. 
+
+- IP Tujuan: 18.0.72.3 (bitsy.mit.edu).
+- Status Server: Bukan. Ini bukan alamat server DNS lokal default saya, melainkan server DNS eksternal yang Anda tentukan secara manual dalam perintah nslookup www.aiit.or.kr bitsy.mit.edu.
+
+2. Analisis Pesan Permintaan (DNS Query)
+
 ![nu2](../week3/assets/week3/nu1.png)
-3. 
+
+- Jenis (Type): A (Host Address) untuk mencari alamat IPv4.
+- Jawaban (Answers): Tidak ada. Pesan permintaan hanya berisi pertanyaan (Questions: 1) dan memiliki jumlah jawaban nol (Answer RRs: 0).
+
+3. Analisis Pesan Balasan (DNS Response)
 ![nu3](../week3/assets/week3/nslookup%20aiit.png)
+
+- Jumlah Jawaban: Tidak ada jawaban (0).
+- Isi Jawaban: Berdasarkan gambar kedua (Command Prompt), permintaan tersebut mengalami DNS request timed out. Hal ini diperkuat oleh gambar Wireshark yang hanya menunjukkan deretan Standard query tanpa adanya paket Standard query response yang masuk kembali dari IP 18.0.72.3 sebagai balasan.
