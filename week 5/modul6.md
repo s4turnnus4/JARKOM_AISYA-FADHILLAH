@@ -126,3 +126,21 @@ Ini tampilan grafik Throughput TCP yang dihasilkan melalui Statistics → TCP St
 Nilai *throughput* dihitung dengan membagi total data yang ditransfer dengan durasi waktu transmisi, yaitu **Throughput = Total Bytes / Total Waktu**. Dari informasi yang muncul di bagian bawah grafik (*hover over the graph for details*), tercatat bahwa total data yang ditransfer adalah **164 KB** (atau sekitar **164.000 bytes**) dengan jumlah paket sebanyak **125 pkts**. Jika kita melihat sumbu horizontal (Time), proses transfer dimulai dari detik **0** hingga sekitar detik **5,4** (berdasarkan Frame 203 pada data sebelumnya). Dengan demikian, perhitungan kasarnya adalah **164.000 bytes / 5,4 detik = 30.370 bytes/detik**. Nilai ini jika dikonversi ke satuan bit (dikali 8) menjadi sekitar **242,9 kbps**, yang sangat sesuai dengan visualisasi garis cokelat pada grafik yang stabil di rentang **200-250 kbps**.
 
 ## 6.5 Congestion Control pada TCP
+Untuk menganalisis congestion control TCP, gunakan fitur Statistics → TCP Stream Graph → Time-Sequence-Graph (Stevens) yang memplot nomor urut segmen terhadap waktu pengirimannya.
+Berikut tampilan grafik Time-Sequence (Stevens):
+
+![akhir](../week%205/assets/image/terakhir.png)
+
+### Jawaban dari pertanyaan
+Berdasarkan grafik **Time-Sequence-Graph (Stevens)** yang Anda lampirkan, berikut adalah analisis mengenai perilaku kontrol kemacetan (*congestion control*) pada koneksi tersebut:
+
+1. Analisis Slow Start dan Congestion Avoidance
+**Fase Slow Start:** Fase ini dimulai tepat pada **0 detik** segera setelah *three-way handshake* selesai. Anda dapat mengidentifikasi fase ini melalui kurva kenaikan nomor urut yang berbentuk eksponensial (melengkung ke atas dengan cepat) pada rentang waktu **0 hingga sekitar 0,5 detik**. Di sini, TCP mencoba meningkatkan jumlah segmen yang dikirim secara agresif.
+**Fase Congestion Avoidance:** Algoritma ini mengambil alih setelah detik ke-0,5, di mana kenaikan nomor urut berubah dari kurva eksponensial menjadi **garis lurus (linear) yang stabil** hingga akhir transmisi pada detik ke-5,4. Hal ini menunjukkan bahwa TCP telah mencapai ambang batas (*threshold*) atau mendeteksi keterbatasan bandwidth, sehingga hanya meningkatkan jendela kemacetan secara bertahap untuk menghindari kepadatan jaringan.
+
+2. Perbedaan dengan Perilaku Ideal TCP
+Data yang diukur dalam *trace* ini menunjukkan perbedaan yang cukup mencolok dibandingkan teori ideal:
+**Kenaikan yang Sangat Linear:** Dalam perilaku ideal, kita biasanya melihat pola "gigi gergaji" (*sawtooth pattern*) di mana grafik akan naik, lalu turun tajam saat terjadi kehilangan paket (*packet loss*), dan naik kembali. Namun, pada grafik Anda, garisnya terlihat sangat mulus dan stabil.
+**Keterbatasan Bandwidth vs Kemacetan:** Perilaku linear yang sangat panjang ini menunjukkan bahwa transmisi tidak dibatasi oleh kemacetan jaringan yang dinamis, melainkan lebih dibatasi oleh **kapasitas bandwidth tetap** atau *pacing* dari sistem operasi/aplikasi. TCP tidak sempat melakukan "tabrakan" yang memaksa jendela kemacetan turun drastis, melainkan langsung beroperasi pada tingkat yang stabil (mencapai *steady state*) dengan sangat cepat.
+
+Secara keseluruhan, *trace* ini menunjukkan koneksi yang sangat stabil dengan *throughput* yang konsisten, berbeda dengan lingkungan jaringan yang sibuk di mana pola fluktuatif lebih sering terjadi.
