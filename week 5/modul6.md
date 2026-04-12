@@ -132,15 +132,17 @@ Berikut tampilan grafik Time-Sequence (Stevens):
 ![akhir](../week%205/assets/image/terakhir.png)
 
 ### Jawaban dari pertanyaan
-Berdasarkan grafik **Time-Sequence-Graph (Stevens)** yang Anda lampirkan, berikut adalah analisis mengenai perilaku kontrol kemacetan (*congestion control*) pada koneksi tersebut:
-
 1. Analisis Slow Start dan Congestion Avoidance
+
 **Fase Slow Start:** Fase ini dimulai tepat pada **0 detik** segera setelah *three-way handshake* selesai. Anda dapat mengidentifikasi fase ini melalui kurva kenaikan nomor urut yang berbentuk eksponensial (melengkung ke atas dengan cepat) pada rentang waktu **0 hingga sekitar 0,5 detik**. Di sini, TCP mencoba meningkatkan jumlah segmen yang dikirim secara agresif.
+
 **Fase Congestion Avoidance:** Algoritma ini mengambil alih setelah detik ke-0,5, di mana kenaikan nomor urut berubah dari kurva eksponensial menjadi **garis lurus (linear) yang stabil** hingga akhir transmisi pada detik ke-5,4. Hal ini menunjukkan bahwa TCP telah mencapai ambang batas (*threshold*) atau mendeteksi keterbatasan bandwidth, sehingga hanya meningkatkan jendela kemacetan secara bertahap untuk menghindari kepadatan jaringan.
 
 2. Perbedaan dengan Perilaku Ideal TCP
+
 Data yang diukur dalam *trace* ini menunjukkan perbedaan yang cukup mencolok dibandingkan teori ideal:
 **Kenaikan yang Sangat Linear:** Dalam perilaku ideal, kita biasanya melihat pola "gigi gergaji" (*sawtooth pattern*) di mana grafik akan naik, lalu turun tajam saat terjadi kehilangan paket (*packet loss*), dan naik kembali. Namun, pada grafik Anda, garisnya terlihat sangat mulus dan stabil.
+
 **Keterbatasan Bandwidth vs Kemacetan:** Perilaku linear yang sangat panjang ini menunjukkan bahwa transmisi tidak dibatasi oleh kemacetan jaringan yang dinamis, melainkan lebih dibatasi oleh **kapasitas bandwidth tetap** atau *pacing* dari sistem operasi/aplikasi. TCP tidak sempat melakukan "tabrakan" yang memaksa jendela kemacetan turun drastis, melainkan langsung beroperasi pada tingkat yang stabil (mencapai *steady state*) dengan sangat cepat.
 
 Secara keseluruhan, *trace* ini menunjukkan koneksi yang sangat stabil dengan *throughput* yang konsisten, berbeda dengan lingkungan jaringan yang sibuk di mana pola fluktuatif lebih sering terjadi.
