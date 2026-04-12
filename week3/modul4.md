@@ -221,10 +221,15 @@ dan balasan terakhir.
 
 ### Jawaban Pertanyaan
 1. 
+![nm1](../week3/assets/week3/new1.png)
 2. 
+![nm2](../week3/assets/week3/new2.png)
 3. 
+![nm3](../week3/assets/week3/new3.png)
 4. 
+![nm4](../week3/assets/week3/new4.png)
 5. 
+![nm5](../week3/assets/week3/new4.png)
 
 ## Analisis Paket DNS nslookup –type=NS mit.edu
 ![nslookup -type mit edu](../week3/assets/week3/nslookup-type.png)
@@ -233,9 +238,11 @@ Menggunakan filter ```ip.addr == 10.92.111.136 && dns.qry.name contains "mit"```
 ![hasil -type](../week3/assets/week3/hasil%20-typr.png)
 ### Jawaban Pertanyaan
 1. 
+![no1](../week3/assets/week3/nw1.png)
 2. 
+![no2](../week3/assets/week3/nw1.png)
 3. 
-4. 
+![no3](../week3/assets/week3/nw3.png)
 
 ## Analisis Paket DNS nslookup www.aiit.or.kr bitsy.mit.edu
 ![nslookup aiit](../week3/assets/week3/nslookup%20aiit.png)
@@ -245,7 +252,10 @@ Menggunakan filter ```ip.dst == 18.0.72.3 && dns && dns.qry.name contains "aiit"
 
 ### Jawaban Pertanyaan
 1. 
+![nu1](../week3/assets/week3/nu1.png)
 2. 
+![nu2](../week3/assets/week3/nu1.png)
 3. 
+![nu3](../week3/assets/week3/nslookup%20aiit.png)
 4. 
 
