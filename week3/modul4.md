@@ -144,9 +144,15 @@ Berdasarkan pengamatan, pesan permintaan DNS (*Query*) dikirim ke **Port Tujuan 
 
 #### 3. Perbandingan Alamat IP Tujuan dan DNS Lokal
 
-![jawaban3](../week3/assets/week3/source%20n%20dest.png)
+```ip.addr == 192.168.0.131 && dns.qry.name contains "ietf"```
 
-Berdasarkan pengamatan pada paket data di Wireshark, pesan permintaan DNS dikirimkan ke alamat IP tujuan **192.168.0.1**. Namun, jika merujuk pada hasil perintah `ipconfig /all` yang dijalankan sebelumnya, alamat DNS server lokal yang terkonfigurasi pada perangkat adalah **10.92.111.136**(Ini bisa di lihat juga pada source di ss an diatas). Perbandingan ini menunjukkan bahwa kedua alamat IP tersebut **berbeda**. Perbedaan ini dapat terjadi karena adanya perubahan koneksi jaringan di antara waktu pengambilan data, penggunaan layanan perantara seperti VPN, atau sistem yang menggunakan alamat *gateway* router sebagai DNS *forwarder* saat proses penangkapan paket berlangsung di Wireshark.
+![jawaban3](../week3/assets/week3/nomor3.png)
+![ip laptop](../week3/assets/week3/ipconfig.png)
+
+IP Tujuan di Wireshark: 192.168.0.1
+IP DNS/Gateway di ipconfig: 192.168.0.1
+Jadi kedua IP ini sama.
+
 
 #### 4. DNS. Apa “jenis” atau ”type” dari pesan tersebut? Apakah pesan permintaan tersebut mengandung ”jawaban” atau ”answers”?
 
