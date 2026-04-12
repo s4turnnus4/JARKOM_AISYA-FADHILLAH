@@ -219,12 +219,33 @@ Dalam menjawab pertanyaan, abaikan dua pasangan permintaan-balasan pertama karen
 merupakan paket yang khusus dihasilkan oleh nslookup. Anda cukup fokus pada pesan permintaan
 dan balasan terakhir.
 
-## Jawaban Pertanyaan
+### Jawaban Pertanyaan
 1. 
 2. 
 3. 
 4. 
 5. 
 
+## Analisis Paket DNS nslookup –type=NS mit.edu
+![nslookup -type mit edu](../week3/assets/week3/nslookup-type.png)
+Ini hasilnya:
+Menggunakan filter ```ip.addr == 10.92.111.136 && dns.qry.name contains "mit"```
+![hasil -type](../week3/assets/week3/hasil%20-typr.png)
+### Jawaban Pertanyaan
+1. 
+2. 
+3. 
+4. 
 
+## Analisis Paket DNS nslookup www.aiit.or.kr bitsy.mit.edu
+![nslookup aiit](../week3/assets/week3/nslookup%20aiit.png)
+Ini hasilnya:
+Menggunakan filter ```ip.dst == 18.0.72.3 && dns && dns.qry.name contains "aiit"```
+![hasil aiit](../week3/assets/week3/hasil%20aiit.png)
+
+### Jawaban Pertanyaan
+1. 
+2. 
+3. 
+4. 
 
