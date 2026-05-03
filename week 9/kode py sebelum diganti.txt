@@ -1,0 +1,66 @@
+pERBEDAAN KODE SEBELUM DIGANTI DAN SESUDAH
+
+Kode SEBELUM: 
+- File TIDAK ditutup → Memory leak
+- Socket TIDAK selalu ditutup → Resource leak
+
+Kode SESUDAH:
+- File ditutup dengan f.close()
+- Socket ditutup di finally → Selalu aman
+
+### KODE SEBELUM DIGANTI DI KELAS PAS THREAD
+
+from socket import *
+import threading
+
+def handle_client(connectionSocket):
+    try:
+        #menerima pesan dari client(user)
+        #10101010="message"
+        message = connectionSocket.recv(1024).decode()
+
+        #index.html, hello.html, dll
+        #message = /GET /index.html HTTP/1.1
+        filename = message.split()[1]
+
+        #membuka index.html serta menghilangkan tanda "/" pada filename
+        f = open(filename[1:])
+
+        #membaca file yang sudah dibuka (html)
+        outputdata = f.read()
+
+        #kirimqq response header ke client
+        connectionSocket.send("HTTP/1.1 200 OK\r\n\r\n".encode())
+
+        #kirim data
+        connectionSocket.sendall(outputdata.encode())
+
+        #tutup koneksi dengan client
+        connectionSocket.close()
+        
+    except IOError:
+        #kirim response header ke client
+        connectionSocket.send("HTTP/1.1 404 Not Found\r\n\r\n".encode())
+
+        #kirim data
+        connectionSocket.sendall("<html><head></head><body><h1>404 Not Found</h1></body></html>".encode())
+
+        #tutup koneksi dengan client
+        connectionSocket.close()
+
+serverSocket = socket(AF_INET, SOCK_STREAM)
+serverSocket.bind(('', 6789))
+serverSocket.listen(5) #menerima 5 client
+print("[SYSTEM] Server is running ...")
+
+
+while True:
+    connectionSocket, addr = serverSocket.accept()
+
+    #membuat thread dan tujuan target threadnya, beserta parameter yang akan dikirim ke thread
+    thread = threading.Thread(
+        target=handle_client,
+        args=(connectionSocket,)
+        )
+    #menjalankan thread
+    thread.start()
