@@ -192,6 +192,13 @@ clientSocket.close()
 
 ![responclient6789](../week%209/assets/image/respon%20client.png)
 
+### File HTML (index.html)
+
+```
+<h1>HALOOO</h1>
+<p>Ayo bermain bersamaku aseekk simpel</p>
+```
+
 Pengembangan pada file **server.py** kini telah mengadopsi konsep **Multithreading** untuk mengatasi keterbatasan server yang sebelumnya hanya mampu melayani satu permintaan dalam satu waktu. Dalam arsitektur yang baru, server memiliki satu *thread* utama yang bertugas secara khusus untuk mendengarkan (*listening*) koneksi masuk pada port 6789(port baru agar beda dgn yg simple). Begitu sebuah permintaan koneksi TCP diterima dari klien, server tidak akan memprosesnya di jalur utama, melainkan segera membentuk *thread* terpisah yang menjalankan fungsi `handle_client`. Hal ini memungkinkan terjadinya koneksi TCP yang independen untuk setiap pasangan permintaan dan respons, sehingga server mampu melayani banyak pengguna secara bersamaan tanpa harus membuat pengguna lain menunggu proses sebelumnya selesai.
 
 Di sisi lain, pengujian server kini dilakukan menggunakan file **client.py** yang dirancang untuk mensimulasikan perilaku browser secara terprogram melalui baris perintah. Klien ini bekerja dengan menerima tiga argumen input, yaitu alamat IP atau *hostname* server, nomor port, dan nama file yang ingin diakses, seperti **index.html**. Setelah argumen tersebut diterima, **client.py** akan membangun koneksi TCP langsung ke arah server dan menyusun pesan permintaan HTTP menggunakan metode `GET` secara manual. Pesan tersebut kemudian dikirimkan melalui *socket*, dan klien akan menunggu respons balik dari server untuk ditampilkan seluruhnya sebagai *output* di terminal.
