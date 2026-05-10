@@ -1,6 +1,6 @@
 # MODUL 10 : IP
 
-## 1. APA ITU IP Adrees?
+## 1. APA ITU IP Adrres?
 
 **IP Address (Internet Protocol Address)** adalah penanda numerik(berbentuk nomor) unik yang diberikan kepada setiap perangkat yang terhubung ke jaringan komputer. Dia berfungsi sebagai identitas agar perangkat bisa saling berkomunikasi dan bertukar data.
 
