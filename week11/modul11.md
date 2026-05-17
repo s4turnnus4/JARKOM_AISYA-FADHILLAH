@@ -25,8 +25,11 @@ Ketika sebuah perangkat (komputer, HP, printer) terhubung ke jaringan, DHCP serv
 
 ## PROSES DORA
 Perangkat -> DISCOVER               -> Mencari DHCP server
+
 Server    -> OFFER                  -> Menawarkan IP
+
 Perangkat -> REQUEST                -> Meminta IP tersebut
+
 Server    -> ACK(Acknowledge)       -> Konfirmasi, IP diberikan
 
 Tahap pertama adalah Discover. Pada tahap ini, client yang baru terhubung ke jaringan belum memiliki alamat IP sama sekali, sehingga alamat sumber yang digunakan adalah 0.0.0.0. Karena client juga belum mengetahui keberadaan DHCP server di jaringan, maka paket dikirimkan secara broadcast ke alamat 255.255.255.255 agar dapat diterima oleh semua perangkat dalam jaringan, termasuk DHCP server. Paket Discover ini pada dasarnya adalah seruan client untuk mencari DHCP server yang tersedia.
